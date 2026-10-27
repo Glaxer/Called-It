@@ -12,6 +12,9 @@
 			? `/signup?redirectTo=${encodeURIComponent(page.url.searchParams.get("redirectTo") ?? "")}`
 			: "/signup"
 	);
+	const fromInvite = $derived(
+		page.url.searchParams.get("redirectTo")?.startsWith("/join/") ?? false
+	);
 </script>
 
 <svelte:head>
@@ -20,6 +23,10 @@
 
 <section class="card auth">
 	<h1>{m.login_title()}</h1>
+
+	{#if fromInvite}
+		<p class="notice">{m.login_to_join()}</p>
+	{/if}
 
 	<form
 		method="POST"
