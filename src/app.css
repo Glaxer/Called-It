@@ -1,0 +1,222 @@
+:root {
+	--bg: #fbf8f3;
+	--surface: #ffffff;
+	--text: #1f1d1a;
+	--muted: #6b655c;
+	--border: #e4ddd2;
+	--accent: #e8590c;
+	--accent-text: #ffffff;
+	--error: #c92a2a;
+	--error-bg: #fff0f0;
+	--notice-bg: #eef7ee;
+	--radius: 12px;
+
+	color-scheme: light dark;
+	font-family:
+		system-ui,
+		-apple-system,
+		"Segoe UI",
+		Roboto,
+		sans-serif;
+	line-height: 1.5;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--bg: #171512;
+		--surface: #221f1b;
+		--text: #f2ede6;
+		--muted: #a59d92;
+		--border: #3a352e;
+		--accent: #ff7a2e;
+		--accent-text: #1a0d05;
+		--error: #ff8787;
+		--error-bg: #3a1d1d;
+		--notice-bg: #1d3320;
+	}
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	background: var(--bg);
+	color: var(--text);
+}
+
+main {
+	max-width: 960px;
+	margin: 0 auto;
+	padding: 24px 16px 64px;
+}
+
+a {
+	color: var(--accent);
+}
+
+h1,
+h2 {
+	line-height: 1.2;
+}
+
+.site-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px;
+	max-width: 960px;
+	margin: 0 auto;
+	padding: 16px;
+}
+
+.site-header nav {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}
+
+.logo {
+	font-weight: 800;
+	font-size: 1.25rem;
+	color: var(--text);
+	text-decoration: none;
+}
+
+.language select {
+	font: inherit;
+	color: inherit;
+	background: transparent;
+	border: 1px solid var(--border);
+	border-radius: 8px;
+	padding: 4px 8px;
+}
+
+.button {
+	display: inline-block;
+	padding: 10px 18px;
+	border: 0;
+	border-radius: 999px;
+	background: var(--accent);
+	color: var(--accent-text);
+	font: inherit;
+	font-weight: 600;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.button.small {
+	padding: 6px 14px;
+}
+
+.button:disabled {
+	opacity: 0.6;
+	cursor: default;
+}
+
+.link-button {
+	background: none;
+	border: 0;
+	padding: 0;
+	font: inherit;
+	color: var(--accent);
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.card {
+	background: var(--surface);
+	border: 1px solid var(--border);
+	border-radius: var(--radius);
+	padding: 24px;
+}
+
+.auth {
+	max-width: 420px;
+	margin: 24px auto;
+}
+
+form {
+	display: grid;
+	gap: 16px;
+}
+
+label {
+	display: grid;
+	gap: 4px;
+	font-weight: 600;
+}
+
+label small {
+	font-weight: 400;
+	color: var(--muted);
+}
+
+input {
+	font: inherit;
+	color: inherit;
+	background: var(--bg);
+	border: 1px solid var(--border);
+	border-radius: 8px;
+	padding: 10px 12px;
+}
+
+input:focus-visible,
+select:focus-visible,
+button:focus-visible,
+a:focus-visible {
+	outline: 2px solid var(--accent);
+	outline-offset: 2px;
+}
+
+.error {
+	margin: 0;
+	padding: 10px 12px;
+	border-radius: 8px;
+	background: var(--error-bg);
+	color: var(--error);
+}
+
+.notice {
+	padding: 12px;
+	border-radius: 8px;
+	background: var(--notice-bg);
+}
+
+.muted {
+	color: var(--muted);
+}
+
+.switch {
+	margin-bottom: 0;
+	text-align: center;
+}
+
+.hero {
+	text-align: center;
+	padding: 48px 0;
+}
+
+.hero h1 {
+	font-size: clamp(2.5rem, 8vw, 4rem);
+	margin-bottom: 8px;
+}
+
+.hero p {
+	font-size: 1.15rem;
+	color: var(--muted);
+	max-width: 32rem;
+	margin: 0 auto 24px;
+}
+
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	white-space: nowrap;
+}
