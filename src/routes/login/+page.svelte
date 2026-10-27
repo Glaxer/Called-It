@@ -63,6 +63,7 @@
 				autocomplete="current-password"
 				required
 			/>
+			<small><a href="/forgot-password">{m.forgot_password_link()}</a></small>
 		</label>
 
 		<button class="button" disabled={submitting}>{m.login_submit()}</button>

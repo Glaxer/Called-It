@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { page } from "$app/state";
 	import { m } from "#lib/paraglide/messages.js";
 	import type { PageProps } from "./$types";
 
@@ -8,6 +9,10 @@
 {#if data.user}
 	<section>
 		<h1>{m.home_greeting({ name: data.displayName ?? "" })}</h1>
+
+		{#if page.url.searchParams.has("passwordChanged")}
+			<p class="notice" role="status">{m.reset_password_done()}</p>
+		{/if}
 
 		<div class="section-header">
 			<h2>{m.home_groups_title()}</h2>

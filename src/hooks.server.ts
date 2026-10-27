@@ -87,7 +87,13 @@ const supabase: Handle = async ({ event, resolve }) => {
 };
 
 /** Pages anyone can open; everything else needs a signed-in user. */
-const PUBLIC_PATHS = ["/", "/login", "/signup", "/auth/confirm"];
+const PUBLIC_PATHS = [
+	"/",
+	"/login",
+	"/signup",
+	"/forgot-password",
+	"/auth/confirm"
+];
 
 const authGuard: Handle = async ({ event, resolve }) => {
 	const user = await event.locals.getVerifiedUser();

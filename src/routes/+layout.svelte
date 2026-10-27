@@ -36,6 +36,7 @@
 		</label>
 
 		{#if data.user}
+			<a href="/account">{data.displayName ?? m.nav_account()}</a>
 			<form method="POST" action="/logout">
 				<button class="link-button">{m.nav_logout()}</button>
 			</form>
