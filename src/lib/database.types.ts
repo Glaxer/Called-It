@@ -21,7 +21,7 @@ export type Database = {
 					prize: number;
 					closes_at: string;
 					created_at: string;
-					created_by: string;
+					created_by: string | null;
 					description: string | null;
 					group_id: string;
 					id: string;
@@ -37,7 +37,7 @@ export type Database = {
 					prize: number;
 					closes_at: string;
 					created_at?: string;
-					created_by?: string;
+					created_by?: string | null;
 					description?: string | null;
 					group_id: string;
 					id?: string;
@@ -53,7 +53,7 @@ export type Database = {
 					prize?: number;
 					closes_at?: string;
 					created_at?: string;
-					created_by?: string;
+					created_by?: string | null;
 					description?: string | null;
 					group_id?: string;
 					id?: string;
@@ -278,6 +278,7 @@ export type Database = {
 		};
 		Functions: {
 			cancel_bet: { Args: { p_bet_id: string }; Returns: undefined };
+			delete_my_account: { Args: never; Returns: undefined };
 			get_invite: {
 				Args: { p_token: string };
 				Returns: {

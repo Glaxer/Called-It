@@ -1,4 +1,4 @@
-import { fail } from "@sveltejs/kit";
+import { fail, redirect } from "@sveltejs/kit";
 import {
 	MAX_DISPLAY_NAME_LENGTH,
 	MIN_PASSWORD_LENGTH
@@ -64,5 +64,22 @@ export const actions: Actions = {
 		}
 
 		return { passwordSaved: true };
+	},
+
+	delete: async ({ request, locals }) => {
+		// Typing the email back makes sure nobody deletes their account by accident
+		const typed = String((await request.formData()).get("confirm_email") ?? "")
+			.trim()
+			.toLowerCase();
+		if (typed !== (locals.user!.email ?? "").toLowerCase()) {
+			return fail(400, { deleteError: m.account_delete_mismatch() });
+		}
+
+		const { error } = await locals.supabase.rpc("delete_my_account");
+		if (error) return fail(500, { deleteError: m.error_generic() });
+
+		// The account is gone; clear the now-useless session cookies
+		await locals.supabase.auth.signOut();
+		redirect(303, "/?accountDeleted=1");
 	}
 };

@@ -52,6 +52,9 @@
 		{/if}
 	</section>
 {:else}
+	{#if page.url.searchParams.has("accountDeleted")}
+		<p class="notice center" role="status">{m.account_deleted()}</p>
+	{/if}
 	<section class="hero">
 		<h1>{m.app_name()}</h1>
 		<p>{m.app_tagline()}</p>

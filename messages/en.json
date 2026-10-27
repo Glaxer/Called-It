@@ -229,5 +229,11 @@
 	"account_signed_in_as": "Logged in as {email}",
 	"account_display_name_hint": "Shown in every group where you haven't set a group nickname.",
 	"account_change_password": "Change password",
-	"account_password_saved": "Password changed"
+	"account_password_saved": "Password changed",
+	"account_delete": "Delete account",
+	"account_delete_hint": "Removes your account, your picked slots and your points. Bets you created stay for the others, and groups you own are handed to an admin or the longest-standing member (groups with only you in them are deleted). This can't be undone.",
+	"account_delete_type_email": "Type your email ({email}) to confirm",
+	"account_delete_mismatch": "That isn't your email. Type it exactly to confirm.",
+	"account_delete_confirm": "Delete your account for good? This can't be undone.",
+	"account_deleted": "Your account has been deleted."
 }

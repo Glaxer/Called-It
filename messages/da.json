@@ -229,5 +229,11 @@
 	"account_signed_in_as": "Logget ind som {email}",
 	"account_display_name_hint": "Vises i alle grupper, hvor du ikke har valgt et gruppenavn.",
 	"account_change_password": "Skift adgangskode",
-	"account_password_saved": "Adgangskode ændret"
+	"account_password_saved": "Adgangskode ændret",
+	"account_delete": "Slet konto",
+	"account_delete_hint": "Fjerner din konto, dine valgte tidspunkter og dine point. Væddemål, du har oprettet, bliver for de andres skyld, og grupper du ejer, overdrages til en admin eller det ældste medlem (grupper med kun dig bliver slettet). Det kan ikke fortrydes.",
+	"account_delete_type_email": "Skriv din e-mail ({email}) for at bekræfte",
+	"account_delete_mismatch": "Det er ikke din e-mail. Skriv den præcist for at bekræfte.",
+	"account_delete_confirm": "Slet din konto for altid? Det kan ikke fortrydes.",
+	"account_deleted": "Din konto er slettet."
 }

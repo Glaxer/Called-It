@@ -84,4 +84,27 @@
 			</div>
 		</form>
 	</section>
+
+	<section class="card danger-zone">
+		<h2>{m.account_delete()}</h2>
+		<p class="muted">{m.account_delete_hint()}</p>
+		<form
+			method="POST"
+			action="?/delete"
+			use:enhance={({ cancel }) => {
+				if (!confirm(m.account_delete_confirm())) cancel();
+			}}
+		>
+			{#if form?.deleteError}
+				<p class="error" role="alert">{form.deleteError}</p>
+			{/if}
+			<label>
+				{m.account_delete_type_email({ email: data.email })}
+				<input name="confirm_email" type="email" autocomplete="off" required />
+			</label>
+			<div class="actions start">
+				<button class="button small danger">{m.account_delete()}</button>
+			</div>
+		</form>
+	</section>
 </div>
