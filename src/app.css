@@ -86,13 +86,22 @@ h2 {
 	text-decoration: none;
 }
 
+/* Explicit colors on both the select and its options: the open list is drawn
+   by the browser, and with a transparent background it fell back to white
+   while the text stayed light in dark mode */
 .language select {
 	font: inherit;
-	color: inherit;
-	background: transparent;
+	color: var(--text);
+	background: var(--surface);
 	border: 1px solid var(--border);
 	border-radius: 8px;
 	padding: 4px 8px;
+	cursor: pointer;
+}
+
+.language option {
+	color: var(--text);
+	background: var(--surface);
 }
 
 .button {
