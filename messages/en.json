@@ -203,5 +203,9 @@
 	"bet_row_closes": "closes {when}",
 	"bet_prize": "Prize",
 	"bet_prize_hint": "Points the winner gets. Picking a slot is free.",
-	"bet_error_prize": "The prize has to be a whole number from 1 to {max}."
+	"bet_error_prize": "The prize has to be a whole number from 1 to {max}.",
+	"bet_edit": "Edit bet",
+	"bet_edit_locked_note": "People have already picked slots, so the prize and timeslots are locked. You can still change the text and closing time, and extend the days (start earlier or end later).",
+	"bet_edit_prize_locked": "The prize can't change once someone has picked a slot.",
+	"bet_edit_slots_locked": "Once someone has picked a slot, the days can only be extended, and the slot length and hours can't change."
 }

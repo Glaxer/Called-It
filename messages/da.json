@@ -203,5 +203,9 @@
 	"bet_row_closes": "lukker {when}",
 	"bet_prize": "Præmie",
 	"bet_prize_hint": "Point som vinderen får. Det er gratis at vælge et tidspunkt.",
-	"bet_error_prize": "Præmien skal være et helt tal fra 1 til {max}."
+	"bet_error_prize": "Præmien skal være et helt tal fra 1 til {max}.",
+	"bet_edit": "Rediger væddemål",
+	"bet_edit_locked_note": "Der er allerede valgt tidspunkter, så præmien og tidspunkterne er låst. Du kan stadig ændre teksten og lukketidspunktet og udvide perioden (starte tidligere eller slutte senere).",
+	"bet_edit_prize_locked": "Præmien kan ikke ændres, når nogen har valgt et tidspunkt.",
+	"bet_edit_slots_locked": "Når nogen har valgt et tidspunkt, kan perioden kun udvides, og længden og timerne kan ikke ændres."
 }

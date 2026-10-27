@@ -85,6 +85,12 @@
 			{m.bet_created_by({ name: data.bet.creatorName })}
 		</small>
 	</div>
+	{#if data.canManage && data.bet.status === "open"}
+		<a
+			class="button small secondary"
+			href="/groups/{data.group.id}/bets/{data.bet.id}/edit">{m.bet_edit()}</a
+		>
+	{/if}
 </header>
 
 <dl class="stats">
