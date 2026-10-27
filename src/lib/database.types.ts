@@ -114,18 +114,21 @@ export type Database = {
 				Row: {
 					group_id: string;
 					joined_at: string;
+					nickname: string | null;
 					role: string;
 					user_id: string;
 				};
 				Insert: {
 					group_id: string;
 					joined_at?: string;
+					nickname?: string | null;
 					role?: string;
 					user_id: string;
 				};
 				Update: {
 					group_id?: string;
 					joined_at?: string;
+					nickname?: string | null;
 					role?: string;
 					user_id?: string;
 				};
@@ -287,11 +290,19 @@ export type Database = {
 				Args: { p_group_id: string; p_token?: string };
 				Returns: string;
 			};
+			member_name: {
+				Args: { p_group_id: string; p_user_id: string };
+				Returns: string;
+			};
 			place_wager: {
 				Args: { p_bet_id: string; p_slot_start: string };
 				Returns: string;
 			};
 			regenerate_invite: { Args: { p_group_id: string }; Returns: string };
+			set_group_nickname: {
+				Args: { p_group_id: string; p_nickname: string };
+				Returns: undefined;
+			};
 			resolve_bet: {
 				Args: { p_bet_id: string; p_outcome_at: string };
 				Returns: string;
