@@ -6,13 +6,35 @@ import {
 	PUBLIC_SUPABASE_URL
 } from "$app/env/public";
 import type { Database } from "#lib/database.types.js";
-import { getTextDirection } from "#lib/paraglide/runtime.js";
+import {
+	cookieMaxAge,
+	cookieName,
+	getTextDirection
+} from "#lib/paraglide/runtime.js";
 import { paraglideMiddleware } from "#lib/paraglide/server.js";
 
-/** Picks the language (cookie → browser language → English) and sets <html lang>. */
+/**
+ * Picks the language (cookie → browser language → English) and sets <html lang>.
+ *
+ * The server reads the browser language from the Accept-Language header, the
+ * browser from navigator.languages, and those don't always agree (Chrome only
+ * sends the first language in the header). If they disagree, the page is
+ * rendered in one language and hydrated in the other, causing a hydration
+ * mismatch. Saving the server's choice in the cookie makes both sides use it.
+ */
 const paraglide: Handle = ({ event, resolve }) =>
-	paraglideMiddleware(event.request, ({ request, locale }) =>
-		resolve(
+	paraglideMiddleware(event.request, ({ request, locale }) => {
+		if (event.cookies.get(cookieName) !== locale) {
+			event.cookies.set(cookieName, locale, {
+				path: "/",
+				maxAge: cookieMaxAge,
+				sameSite: "lax",
+				// The browser-side runtime reads it, so it can't be httpOnly
+				httpOnly: false
+			});
+		}
+
+		return resolve(
 			{ ...event, request },
 			{
 				transformPageChunk: ({ html }) =>
@@ -20,8 +42,8 @@ const paraglide: Handle = ({ event, resolve }) =>
 						.replace("%paraglide.lang%", locale)
 						.replace("%paraglide.dir%", getTextDirection(locale))
 			}
-		)
-	);
+		);
+	});
 
 /** Creates a Supabase client per request that reads and writes the auth cookies. */
 const supabase: Handle = async ({ event, resolve }) => {
