@@ -57,7 +57,6 @@
 	"you": "you",
 	"back_home": "Back to the front page",
 	"bets_title": "Bets",
-	"bets_coming_soon": "No bets yet. Creating bets is coming next.",
 	"leaderboard_title": "Leaderboard",
 	"leaderboard_record": "Won {won} of {played}",
 	"invite_title": "Invite link",
@@ -95,5 +94,115 @@
 	"delete_group": "Delete group",
 	"delete_group_hint": "Deletes the group with all its bets and points. This can't be undone.",
 	"delete_group_confirm": "Delete {group} with all its bets and points? This can't be undone.",
-	"login_to_join": "You've been invited to a group. Log in, or sign up if you're new, and you'll be taken straight back to the invite."
+	"login_to_join": "You've been invited to a group. Log in, or sign up if you're new, and you'll be taken straight back to the invite.",
+	"bets_empty": "No bets yet. Create the first one!",
+	"bets_empty_no_create": "No bets yet. The owner or an admin can create one.",
+	"bet_create": "New bet",
+	"bet_title": "What are you betting on?",
+	"bet_title_placeholder": "When will the baby be born?",
+	"bet_description": "Details",
+	"bet_range": "Which days can people pick?",
+	"bet_range_from": "From",
+	"bet_range_to": "To",
+	"bet_slots": "Timeslots",
+	"bet_slot_length": "Slot length",
+	"slot_length_15": "15 minutes",
+	"slot_length_30": "30 minutes",
+	"slot_length_60": "1 hour",
+	"slot_length_120": "2 hours",
+	"slot_length_1440": "Whole day",
+	"bet_hours_from": "Each day from",
+	"bet_hours_to": "Until",
+	"bet_slot_summary": [
+		{
+			"declarations": [
+				"input days",
+				"input perDay",
+				"input total",
+				"local daysPlural = days: plural"
+			],
+			"selectors": ["daysPlural"],
+			"match": {
+				"daysPlural=one": "{total} slots to pick from ({perDay} on the one day).",
+				"daysPlural=other": "{total} slots to pick from ({perDay} a day over {days} days)."
+			}
+		}
+	],
+	"bet_buy_in": "Buy-in",
+	"bet_buy_in_hint": "Points everyone puts in. The winner takes them all.",
+	"bet_closes_at": "Betting closes",
+	"bet_closes_at_hint": "After this, nobody can pick or change a slot.",
+	"bet_time_zone_note": "Times are in {timeZone}.",
+	"bet_error_title_missing": "Please write what the bet is about.",
+	"bet_error_title_long": "The title can be at most {max} characters.",
+	"bet_error_description_long": "The details can be at most {max} characters.",
+	"bet_error_range_missing": "Please pick the first and last day.",
+	"bet_error_range_order": "The last day can't be before the first day.",
+	"bet_error_range_long": "The range can be at most {max} days.",
+	"bet_error_hours": "The hours each day need to fit at least one slot.",
+	"bet_error_hours_fit": "The hours each day have to divide evenly into slots. Try a shorter slot length or change the hours.",
+	"bet_error_buy_in": "The buy-in has to be a whole number from 1 to {max}.",
+	"bet_error_closes_missing": "Please pick when betting closes.",
+	"bet_error_closes_past": "Betting has to close some time in the future.",
+	"bet_error_outcome_missing": "Please enter when it happened.",
+	"former_member": "Former member",
+	"slot_taken": "Someone just took that slot. Pick another one.",
+	"slot_invalid": "That isn't one of the slots in this bet.",
+	"betting_closed": "Betting has closed.",
+	"bet_finished": "This bet is already finished.",
+	"bet_created_by": "Created by {name}",
+	"bet_pot": "Pot",
+	"bet_players": "Players",
+	"bet_closes": "Closes",
+	"bet_status_closed": "Betting closed",
+	"bet_status_resolved": "Finished",
+	"bet_status_cancelled": "Cancelled",
+	"bet_result": "Result",
+	"bet_you_won": "You called it! You won the pot of {pot} points.",
+	"bet_winner": "{name} called it and won the pot of {pot} points.",
+	"bet_no_players": "Nobody had placed a bet.",
+	"bet_cancelled_note": "This bet was cancelled. Everyone got their buy-in back.",
+	"bet_your_slot": "Your slot:",
+	"bet_move_hint": "Changed your mind? Click another free slot to move.",
+	"bet_withdraw": "Withdraw",
+	"bet_withdraw_confirm": "Withdraw from this bet and give up your slot?",
+	"bet_pick_slot": "Pick a free slot below. It costs {buyIn} points, and the closest slot wins the pot.",
+	"bet_closed_no_slot": "Betting has closed. You didn't pick a slot this time.",
+	"bet_taken_count": [
+		{
+			"declarations": ["input count", "local countPlural = count: plural"],
+			"selectors": ["countPlural"],
+			"match": {
+				"countPlural=one": "{count} slot taken",
+				"countPlural=other": "{count} slots taken"
+			}
+		}
+	],
+	"bet_claim_slot": "Claim this slot",
+	"bet_manage": "Manage bet",
+	"bet_outcome": "When did it happen?",
+	"bet_outcome_hint": "The closest slot wins. If someone's slot covers this exact time, they win.",
+	"bet_resolve": "Pick the winner",
+	"bet_resolve_confirm": "Finish the bet with {outcome} as the result? This can't be undone.",
+	"bet_cancel": "Cancel bet",
+	"bet_cancel_hint": "Everyone gets their buy-in back.",
+	"bet_cancel_confirm": "Cancel this bet? Everyone gets their buy-in back, and it can't be undone.",
+	"bet_you_are_in": "You're in",
+	"bet_row_stats": [
+		{
+			"declarations": [
+				"input players",
+				"input pot",
+				"local playersPlural = players: plural"
+			],
+			"selectors": ["playersPlural"],
+			"match": {
+				"playersPlural=one": "{players} player · pot {pot}",
+				"playersPlural=other": "{players} players · pot {pot}"
+			}
+		}
+	],
+	"bet_row_you_won": "You won!",
+	"bet_row_winner": "{name} won",
+	"bet_row_closes": "closes {when}"
 }

@@ -57,7 +57,6 @@
 	"you": "dig",
 	"back_home": "Tilbage til forsiden",
 	"bets_title": "Væddemål",
-	"bets_coming_soon": "Ingen væddemål endnu. Oprettelse af væddemål kommer som det næste.",
 	"leaderboard_title": "Stilling",
 	"leaderboard_record": "Vundet {won} af {played}",
 	"invite_title": "Invitationslink",
@@ -95,5 +94,115 @@
 	"delete_group": "Slet gruppe",
 	"delete_group_hint": "Sletter gruppen med alle dens væddemål og point. Det kan ikke fortrydes.",
 	"delete_group_confirm": "Slet {group} med alle væddemål og point? Det kan ikke fortrydes.",
-	"login_to_join": "Du er inviteret til en gruppe. Log ind, eller opret en konto hvis du er ny, så kommer du direkte tilbage til invitationen."
+	"login_to_join": "Du er inviteret til en gruppe. Log ind, eller opret en konto hvis du er ny, så kommer du direkte tilbage til invitationen.",
+	"bets_empty": "Ingen væddemål endnu. Opret det første!",
+	"bets_empty_no_create": "Ingen væddemål endnu. Ejeren eller en admin kan oprette et.",
+	"bet_create": "Nyt væddemål",
+	"bet_title": "Hvad vædder I om?",
+	"bet_title_placeholder": "Hvornår bliver babyen født?",
+	"bet_description": "Detaljer",
+	"bet_range": "Hvilke dage kan man vælge?",
+	"bet_range_from": "Fra",
+	"bet_range_to": "Til",
+	"bet_slots": "Tidspunkter",
+	"bet_slot_length": "Længde på tidspunkt",
+	"slot_length_15": "15 minutter",
+	"slot_length_30": "30 minutter",
+	"slot_length_60": "1 time",
+	"slot_length_120": "2 timer",
+	"slot_length_1440": "Hele dagen",
+	"bet_hours_from": "Hver dag fra",
+	"bet_hours_to": "Til",
+	"bet_slot_summary": [
+		{
+			"declarations": [
+				"input days",
+				"input perDay",
+				"input total",
+				"local daysPlural = days: plural"
+			],
+			"selectors": ["daysPlural"],
+			"match": {
+				"daysPlural=one": "{total} tidspunkter at vælge imellem ({perDay} på den ene dag).",
+				"daysPlural=other": "{total} tidspunkter at vælge imellem ({perDay} om dagen i {days} dage)."
+			}
+		}
+	],
+	"bet_buy_in": "Indskud",
+	"bet_buy_in_hint": "Point som alle lægger i puljen. Vinderen tager det hele.",
+	"bet_closes_at": "Lukker for bud",
+	"bet_closes_at_hint": "Herefter kan ingen vælge eller ændre tidspunkt.",
+	"bet_time_zone_note": "Tiderne er i {timeZone}.",
+	"bet_error_title_missing": "Skriv venligst, hvad væddemålet handler om.",
+	"bet_error_title_long": "Titlen må højst være {max} tegn.",
+	"bet_error_description_long": "Detaljerne må højst være {max} tegn.",
+	"bet_error_range_missing": "Vælg venligst første og sidste dag.",
+	"bet_error_range_order": "Sidste dag kan ikke ligge før første dag.",
+	"bet_error_range_long": "Perioden må højst være {max} dage.",
+	"bet_error_hours": "Timerne hver dag skal kunne rumme mindst ét tidspunkt.",
+	"bet_error_hours_fit": "Timerne hver dag skal kunne deles op i hele tidspunkter. Prøv en kortere længde eller andre timer.",
+	"bet_error_buy_in": "Indskuddet skal være et helt tal fra 1 til {max}.",
+	"bet_error_closes_missing": "Vælg venligst, hvornår der lukkes for bud.",
+	"bet_error_closes_past": "Der skal lukkes for bud et tidspunkt ude i fremtiden.",
+	"bet_error_outcome_missing": "Skriv venligst, hvornår det skete.",
+	"former_member": "Tidligere medlem",
+	"slot_taken": "Nogen har lige taget det tidspunkt. Vælg et andet.",
+	"slot_invalid": "Det er ikke et af tidspunkterne i dette væddemål.",
+	"betting_closed": "Der er lukket for bud.",
+	"bet_finished": "Dette væddemål er allerede afsluttet.",
+	"bet_created_by": "Oprettet af {name}",
+	"bet_pot": "Pulje",
+	"bet_players": "Deltagere",
+	"bet_closes": "Lukker",
+	"bet_status_closed": "Lukket for bud",
+	"bet_status_resolved": "Afsluttet",
+	"bet_status_cancelled": "Aflyst",
+	"bet_result": "Resultat",
+	"bet_you_won": "Du ramte plet! Du vandt puljen på {pot} point.",
+	"bet_winner": "{name} ramte plet og vandt puljen på {pot} point.",
+	"bet_no_players": "Ingen havde budt.",
+	"bet_cancelled_note": "Væddemålet blev aflyst. Alle fik deres indskud tilbage.",
+	"bet_your_slot": "Dit tidspunkt:",
+	"bet_move_hint": "Fortryder du? Klik på et andet ledigt tidspunkt for at flytte.",
+	"bet_withdraw": "Træk dig",
+	"bet_withdraw_confirm": "Træk dig fra væddemålet og opgiv dit tidspunkt?",
+	"bet_pick_slot": "Vælg et ledigt tidspunkt herunder. Det koster {buyIn} point, og det tætteste tidspunkt vinder puljen.",
+	"bet_closed_no_slot": "Der er lukket for bud. Du valgte ikke et tidspunkt denne gang.",
+	"bet_taken_count": [
+		{
+			"declarations": ["input count", "local countPlural = count: plural"],
+			"selectors": ["countPlural"],
+			"match": {
+				"countPlural=one": "{count} tidspunkt taget",
+				"countPlural=other": "{count} tidspunkter taget"
+			}
+		}
+	],
+	"bet_claim_slot": "Tag dette tidspunkt",
+	"bet_manage": "Administrer væddemål",
+	"bet_outcome": "Hvornår skete det?",
+	"bet_outcome_hint": "Det tætteste tidspunkt vinder. Dækker nogens tidspunkt præcis dette klokkeslæt, vinder de.",
+	"bet_resolve": "Find vinderen",
+	"bet_resolve_confirm": "Afslut væddemålet med {outcome} som resultat? Det kan ikke fortrydes.",
+	"bet_cancel": "Aflys væddemål",
+	"bet_cancel_hint": "Alle får deres indskud tilbage.",
+	"bet_cancel_confirm": "Aflys væddemålet? Alle får deres indskud tilbage, og det kan ikke fortrydes.",
+	"bet_you_are_in": "Du er med",
+	"bet_row_stats": [
+		{
+			"declarations": [
+				"input players",
+				"input pot",
+				"local playersPlural = players: plural"
+			],
+			"selectors": ["playersPlural"],
+			"match": {
+				"playersPlural=one": "{players} deltager · pulje {pot}",
+				"playersPlural=other": "{players} deltagere · pulje {pot}"
+			}
+		}
+	],
+	"bet_row_you_won": "Du vandt!",
+	"bet_row_winner": "{name} vandt",
+	"bet_row_closes": "lukker {when}"
 }

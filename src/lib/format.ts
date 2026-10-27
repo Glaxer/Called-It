@@ -28,3 +28,36 @@ export function formatTime(date: Date, timeZone: string) {
 	const minute = parts.find((p) => p.type === "minute")?.value ?? "00";
 	return `${hour}:${minute}`;
 }
+
+/** A "YYYY-MM-DD" day as a short label: "Sun 7 Feb" style, in the given language */
+export function formatDayLabel(day: string, locale: string) {
+	const [y, m, d] = day.split("-").map(Number);
+	const date = new Date(Date.UTC(y, m - 1, d, 12));
+	return {
+		weekday: new Intl.DateTimeFormat(locale, {
+			weekday: "short",
+			timeZone: "UTC"
+		}).format(date),
+		date: new Intl.DateTimeFormat(locale, {
+			day: "numeric",
+			month: "short",
+			timeZone: "UTC"
+		}).format(date)
+	};
+}
+
+/** "Sunday 7 February" style, for headings */
+export function formatLongDay(day: string, locale: string) {
+	const [y, m, d] = day.split("-").map(Number);
+	return new Intl.DateTimeFormat(locale, {
+		weekday: "long",
+		day: "numeric",
+		month: "long",
+		timeZone: "UTC"
+	}).format(new Date(Date.UTC(y, m - 1, d, 12)));
+}
+
+/** A whole number with the language's thousands separator */
+export function formatNumber(value: number, locale: string) {
+	return new Intl.NumberFormat(locale).format(value);
+}

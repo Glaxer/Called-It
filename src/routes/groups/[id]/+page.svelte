@@ -1,10 +1,13 @@
 <script lang="ts">
 	import { enhance } from "$app/forms";
 	import CopyField from "#lib/components/CopyField.svelte";
+	import { formatNumber, formatSlot } from "#lib/format.js";
 	import { m } from "#lib/paraglide/messages.js";
+	import { getLocale } from "#lib/paraglide/runtime.js";
 	import type { PageProps } from "./$types";
 
 	let { data, form }: PageProps = $props();
+	const locale = getLocale();
 
 	const canManage = $derived(
 		data.membership?.role === "owner" || data.membership?.role === "admin"
@@ -52,8 +55,63 @@
 {:else}
 	<div class="group-grid">
 		<section class="card bets">
-			<h2>{m.bets_title()}</h2>
-			<p class="muted">{m.bets_coming_soon()}</p>
+			<div class="section-header">
+				<h2>{m.bets_title()}</h2>
+				{#if data.canCreateBets}
+					<a class="button small" href="/groups/{data.group.id}/bets/new"
+						>{m.bet_create()}</a
+					>
+				{/if}
+			</div>
+
+			{#if data.bets.length}
+				<ul class="bet-list">
+					{#each data.bets as bet (bet.id)}
+						{@const open =
+							bet.status === "open" && new Date(bet.closesAt) > new Date()}
+						<li>
+							<a href="/groups/{data.group.id}/bets/{bet.id}" class="bet-row">
+								<span class="bet-title">
+									{bet.title}
+									{#if bet.youPlayed && bet.status === "open"}
+										<span class="tag accent">{m.bet_you_are_in()}</span>
+									{/if}
+								</span>
+								<span class="muted small">
+									{m.bet_row_stats({
+										players: bet.players,
+										pot: formatNumber(bet.buyIn * bet.players, locale)
+									})}
+									·
+									{#if bet.status === "resolved"}
+										{bet.youWon
+											? m.bet_row_you_won()
+											: bet.winnerName
+												? m.bet_row_winner({ name: bet.winnerName })
+												: m.bet_status_resolved()}
+									{:else if bet.status === "cancelled"}
+										{m.bet_status_cancelled()}
+									{:else if open}
+										{m.bet_row_closes({
+											when: formatSlot(
+												new Date(bet.closesAt),
+												locale,
+												bet.timeZone
+											)
+										})}
+									{:else}
+										{m.bet_status_closed()}
+									{/if}
+								</span>
+							</a>
+						</li>
+					{/each}
+				</ul>
+			{:else}
+				<p class="muted">
+					{data.canCreateBets ? m.bets_empty() : m.bets_empty_no_create()}
+				</p>
+			{/if}
 		</section>
 
 		<section class="card">
