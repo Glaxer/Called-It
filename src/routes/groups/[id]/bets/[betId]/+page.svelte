@@ -19,7 +19,7 @@
 	const timeZone = $derived(config.timeZone);
 	const youId = $derived(data.user?.id);
 
-	const pot = $derived(data.bet.buy_in * data.wagers.length);
+	const prize = $derived(formatNumber(data.bet.prize, locale));
 	const isOpen = $derived(
 		data.bet.status === "open" && new Date(data.bet.closes_at) > new Date()
 	);
@@ -89,12 +89,8 @@
 
 <dl class="stats">
 	<div>
-		<dt>{m.bet_buy_in()}</dt>
-		<dd>{formatNumber(data.bet.buy_in, locale)}</dd>
-	</div>
-	<div>
-		<dt>{m.bet_pot()}</dt>
-		<dd>{formatNumber(pot, locale)}</dd>
+		<dt>{m.bet_prize()}</dt>
+		<dd>{prize}</dd>
 	</div>
 	<div>
 		<dt>{m.bet_players()}</dt>
@@ -131,11 +127,8 @@
 		{#if data.bet.winnerName}
 			<p>
 				{data.bet.winner_id === youId
-					? m.bet_you_won({ pot: formatNumber(pot, locale) })
-					: m.bet_winner({
-							name: data.bet.winnerName,
-							pot: formatNumber(pot, locale)
-						})}
+					? m.bet_you_won({ prize })
+					: m.bet_winner({ name: data.bet.winnerName, prize })}
 			</p>
 		{:else}
 			<p>{m.bet_no_players()}</p>
@@ -174,7 +167,7 @@
 		{/if}
 	{:else if isOpen}
 		<p>
-			{m.bet_pick_slot({ buyIn: formatNumber(data.bet.buy_in, locale) })}
+			{m.bet_pick_slot({ prize })}
 		</p>
 	{:else if data.bet.status === "open"}
 		<p class="muted">{m.bet_closed_no_slot()}</p>

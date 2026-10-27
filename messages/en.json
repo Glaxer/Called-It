@@ -1,7 +1,7 @@
 {
 	"$schema": "https://inlang.com/schema/inlang-message-format",
 	"app_name": "Called It",
-	"app_tagline": "Friendly bets for friends and family. Pick a slot, closest guess takes the pot.",
+	"app_tagline": "Friendly bets for friends and family. Pick a slot, and the closest guess wins the prize.",
 	"nav_login": "Log in",
 	"nav_signup": "Sign up",
 	"nav_logout": "Log out",
@@ -128,8 +128,6 @@
 			}
 		}
 	],
-	"bet_buy_in": "Buy-in",
-	"bet_buy_in_hint": "Points everyone puts in. The winner takes them all.",
 	"bet_closes_at": "Betting closes",
 	"bet_closes_at_hint": "After this, nobody can pick or change a slot.",
 	"bet_time_zone_note": "Times are in {timeZone}.",
@@ -141,7 +139,6 @@
 	"bet_error_range_long": "The range can be at most {max} days.",
 	"bet_error_hours": "The hours each day need to fit at least one slot.",
 	"bet_error_hours_fit": "The hours each day have to divide evenly into slots. Try a shorter slot length or change the hours.",
-	"bet_error_buy_in": "The buy-in has to be a whole number from 1 to {max}.",
 	"bet_error_closes_missing": "Please pick when betting closes.",
 	"bet_error_closes_past": "Betting has to close some time in the future.",
 	"bet_error_outcome_missing": "Please enter when it happened.",
@@ -151,22 +148,21 @@
 	"betting_closed": "Betting has closed.",
 	"bet_finished": "This bet is already finished.",
 	"bet_created_by": "Created by {name}",
-	"bet_pot": "Pot",
 	"bet_players": "Players",
 	"bet_closes": "Closes",
 	"bet_status_closed": "Betting closed",
 	"bet_status_resolved": "Finished",
 	"bet_status_cancelled": "Cancelled",
 	"bet_result": "Result",
-	"bet_you_won": "You called it! You won the pot of {pot} points.",
-	"bet_winner": "{name} called it and won the pot of {pot} points.",
+	"bet_you_won": "You called it! You won {prize} points.",
+	"bet_winner": "{name} called it and won {prize} points.",
 	"bet_no_players": "Nobody had placed a bet.",
-	"bet_cancelled_note": "This bet was cancelled. Everyone got their buy-in back.",
+	"bet_cancelled_note": "This bet was cancelled, so nobody won points.",
 	"bet_your_slot": "Your slot:",
 	"bet_move_hint": "Changed your mind? Click another free slot to move.",
 	"bet_withdraw": "Withdraw",
 	"bet_withdraw_confirm": "Withdraw from this bet and give up your slot?",
-	"bet_pick_slot": "Pick a free slot below. It costs {buyIn} points, and the closest slot wins the pot.",
+	"bet_pick_slot": "Pick a free slot below. The closest slot wins {prize} points.",
 	"bet_closed_no_slot": "Betting has closed. You didn't pick a slot this time.",
 	"bet_taken_count": [
 		{
@@ -185,24 +181,27 @@
 	"bet_resolve": "Pick the winner",
 	"bet_resolve_confirm": "Finish the bet with {outcome} as the result? This can't be undone.",
 	"bet_cancel": "Cancel bet",
-	"bet_cancel_hint": "Everyone gets their buy-in back.",
-	"bet_cancel_confirm": "Cancel this bet? Everyone gets their buy-in back, and it can't be undone.",
+	"bet_cancel_hint": "Nobody wins points from a cancelled bet.",
+	"bet_cancel_confirm": "Cancel this bet? Nobody wins points from it, and it can't be undone.",
 	"bet_you_are_in": "You're in",
 	"bet_row_stats": [
 		{
 			"declarations": [
 				"input players",
-				"input pot",
+				"input prize",
 				"local playersPlural = players: plural"
 			],
 			"selectors": ["playersPlural"],
 			"match": {
-				"playersPlural=one": "{players} player · pot {pot}",
-				"playersPlural=other": "{players} players · pot {pot}"
+				"playersPlural=one": "{players} player · prize {prize}",
+				"playersPlural=other": "{players} players · prize {prize}"
 			}
 		}
 	],
 	"bet_row_you_won": "You won!",
 	"bet_row_winner": "{name} won",
-	"bet_row_closes": "closes {when}"
+	"bet_row_closes": "closes {when}",
+	"bet_prize": "Prize",
+	"bet_prize_hint": "Points the winner gets. Picking a slot is free.",
+	"bet_error_prize": "The prize has to be a whole number from 1 to {max}."
 }

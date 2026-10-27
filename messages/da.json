@@ -1,7 +1,7 @@
 {
 	"$schema": "https://inlang.com/schema/inlang-message-format",
 	"app_name": "Called It",
-	"app_tagline": "Hyggelige væddemål med venner og familie. Vælg et tidspunkt, og det tætteste gæt vinder puljen.",
+	"app_tagline": "Hyggelige væddemål med venner og familie. Vælg et tidspunkt, og det tætteste gæt vinder præmien.",
 	"nav_login": "Log ind",
 	"nav_signup": "Opret konto",
 	"nav_logout": "Log ud",
@@ -128,8 +128,6 @@
 			}
 		}
 	],
-	"bet_buy_in": "Indskud",
-	"bet_buy_in_hint": "Point som alle lægger i puljen. Vinderen tager det hele.",
 	"bet_closes_at": "Lukker for bud",
 	"bet_closes_at_hint": "Herefter kan ingen vælge eller ændre tidspunkt.",
 	"bet_time_zone_note": "Tiderne er i {timeZone}.",
@@ -141,7 +139,6 @@
 	"bet_error_range_long": "Perioden må højst være {max} dage.",
 	"bet_error_hours": "Timerne hver dag skal kunne rumme mindst ét tidspunkt.",
 	"bet_error_hours_fit": "Timerne hver dag skal kunne deles op i hele tidspunkter. Prøv en kortere længde eller andre timer.",
-	"bet_error_buy_in": "Indskuddet skal være et helt tal fra 1 til {max}.",
 	"bet_error_closes_missing": "Vælg venligst, hvornår der lukkes for bud.",
 	"bet_error_closes_past": "Der skal lukkes for bud et tidspunkt ude i fremtiden.",
 	"bet_error_outcome_missing": "Skriv venligst, hvornår det skete.",
@@ -151,22 +148,21 @@
 	"betting_closed": "Der er lukket for bud.",
 	"bet_finished": "Dette væddemål er allerede afsluttet.",
 	"bet_created_by": "Oprettet af {name}",
-	"bet_pot": "Pulje",
 	"bet_players": "Deltagere",
 	"bet_closes": "Lukker",
 	"bet_status_closed": "Lukket for bud",
 	"bet_status_resolved": "Afsluttet",
 	"bet_status_cancelled": "Aflyst",
 	"bet_result": "Resultat",
-	"bet_you_won": "Du ramte plet! Du vandt puljen på {pot} point.",
-	"bet_winner": "{name} ramte plet og vandt puljen på {pot} point.",
+	"bet_you_won": "Du ramte plet! Du vandt {prize} point.",
+	"bet_winner": "{name} ramte plet og vandt {prize} point.",
 	"bet_no_players": "Ingen havde budt.",
-	"bet_cancelled_note": "Væddemålet blev aflyst. Alle fik deres indskud tilbage.",
+	"bet_cancelled_note": "Væddemålet blev aflyst, så ingen vandt point.",
 	"bet_your_slot": "Dit tidspunkt:",
 	"bet_move_hint": "Fortryder du? Klik på et andet ledigt tidspunkt for at flytte.",
 	"bet_withdraw": "Træk dig",
 	"bet_withdraw_confirm": "Træk dig fra væddemålet og opgiv dit tidspunkt?",
-	"bet_pick_slot": "Vælg et ledigt tidspunkt herunder. Det koster {buyIn} point, og det tætteste tidspunkt vinder puljen.",
+	"bet_pick_slot": "Vælg et ledigt tidspunkt herunder. Det tætteste tidspunkt vinder {prize} point.",
 	"bet_closed_no_slot": "Der er lukket for bud. Du valgte ikke et tidspunkt denne gang.",
 	"bet_taken_count": [
 		{
@@ -185,24 +181,27 @@
 	"bet_resolve": "Find vinderen",
 	"bet_resolve_confirm": "Afslut væddemålet med {outcome} som resultat? Det kan ikke fortrydes.",
 	"bet_cancel": "Aflys væddemål",
-	"bet_cancel_hint": "Alle får deres indskud tilbage.",
-	"bet_cancel_confirm": "Aflys væddemålet? Alle får deres indskud tilbage, og det kan ikke fortrydes.",
+	"bet_cancel_hint": "Ingen vinder point fra et aflyst væddemål.",
+	"bet_cancel_confirm": "Aflys væddemålet? Ingen vinder point fra det, og det kan ikke fortrydes.",
 	"bet_you_are_in": "Du er med",
 	"bet_row_stats": [
 		{
 			"declarations": [
 				"input players",
-				"input pot",
+				"input prize",
 				"local playersPlural = players: plural"
 			],
 			"selectors": ["playersPlural"],
 			"match": {
-				"playersPlural=one": "{players} deltager · pulje {pot}",
-				"playersPlural=other": "{players} deltagere · pulje {pot}"
+				"playersPlural=one": "{players} deltager · præmie {prize}",
+				"playersPlural=other": "{players} deltagere · præmie {prize}"
 			}
 		}
 	],
 	"bet_row_you_won": "Du vandt!",
 	"bet_row_winner": "{name} vandt",
-	"bet_row_closes": "lukker {when}"
+	"bet_row_closes": "lukker {when}",
+	"bet_prize": "Præmie",
+	"bet_prize_hint": "Point som vinderen får. Det er gratis at vælge et tidspunkt.",
+	"bet_error_prize": "Præmien skal være et helt tal fra 1 til {max}."
 }

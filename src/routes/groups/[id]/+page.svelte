@@ -13,13 +13,6 @@
 		data.membership?.role === "owner" || data.membership?.role === "admin"
 	);
 	const youId = $derived(data.user?.id);
-
-	/** "+50", "−50" or "0", with a real minus sign */
-	function formatPoints(points: number) {
-		if (points > 0) return `+${points}`;
-		if (points < 0) return `−${Math.abs(points)}`;
-		return "0";
-	}
 </script>
 
 <svelte:head>
@@ -80,7 +73,7 @@
 								<span class="muted small">
 									{m.bet_row_stats({
 										players: bet.players,
-										pot: formatNumber(bet.buyIn * bet.players, locale)
+										prize: formatNumber(bet.prize, locale)
 									})}
 									·
 									{#if bet.status === "resolved"}
@@ -126,8 +119,8 @@
 								<small class="muted">({m.you()})</small>
 							{/if}
 						</span>
-						<span class="points" class:negative={(row.points ?? 0) < 0}>
-							{formatPoints(row.points ?? 0)}
+						<span class="points">
+							{formatNumber(row.points ?? 0, locale)}
 						</span>
 						<small class="muted record">
 							{m.leaderboard_record({

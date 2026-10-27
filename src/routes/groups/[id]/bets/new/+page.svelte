@@ -164,17 +164,17 @@
 
 	<div class="row">
 		<label>
-			{m.bet_buy_in()}
+			{m.bet_prize()}
 			<input
 				type="number"
-				name="buy_in"
+				name="prize"
 				min="1"
 				max="1000000"
 				step="1"
 				required
-				value={form?.buyIn || 10}
+				value={form?.prize || 10}
 			/>
-			<small>{m.bet_buy_in_hint()}</small>
+			<small>{m.bet_prize_hint()}</small>
 		</label>
 
 		<label>

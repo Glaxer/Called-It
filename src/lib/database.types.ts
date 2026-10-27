@@ -18,7 +18,7 @@ export type Database = {
 				Row: {
 					answer_config: Json;
 					answer_type: string;
-					buy_in: number;
+					prize: number;
 					closes_at: string;
 					created_at: string;
 					created_by: string;
@@ -34,7 +34,7 @@ export type Database = {
 				Insert: {
 					answer_config: Json;
 					answer_type?: string;
-					buy_in: number;
+					prize: number;
 					closes_at: string;
 					created_at?: string;
 					created_by?: string;
@@ -50,7 +50,7 @@ export type Database = {
 				Update: {
 					answer_config?: Json;
 					answer_type?: string;
-					buy_in?: number;
+					prize?: number;
 					closes_at?: string;
 					created_at?: string;
 					created_by?: string;

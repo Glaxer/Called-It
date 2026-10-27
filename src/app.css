@@ -438,10 +438,6 @@ legend {
 	font-variant-numeric: tabular-nums;
 }
 
-.leaderboard .points.negative {
-	color: var(--error);
-}
-
 .leaderboard .record {
 	grid-column: 2 / -1;
 }

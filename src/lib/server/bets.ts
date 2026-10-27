@@ -15,7 +15,7 @@ import { assertUuid } from "./groups.js";
 
 export const MAX_BET_TITLE_LENGTH = 120;
 export const MAX_BET_DESCRIPTION_LENGTH = 1000;
-export const MAX_BUY_IN = 1_000_000;
+export const MAX_PRIZE = 1_000_000;
 export const DEFAULT_TIME_ZONE = "Europe/Copenhagen";
 
 const DAY = /^\d{4}-\d{2}-\d{2}$/;
@@ -41,7 +41,7 @@ export function readBetForm(form: FormData) {
 		slotMinutes: Number(get("slot_minutes")),
 		dayStartHour: Number(get("day_start_hour") || 0),
 		dayEndHour: Number(get("day_end_hour") || 24),
-		buyIn: Number(get("buy_in")),
+		prize: Number(get("prize")),
 		closesAt: get("closes_at"),
 		timeZone: get("time_zone") || DEFAULT_TIME_ZONE
 	};
@@ -87,11 +87,11 @@ export function readBetForm(form: FormData) {
 		return fail(m.bet_error_hours_fit());
 
 	if (
-		!Number.isInteger(values.buyIn) ||
-		values.buyIn < 1 ||
-		values.buyIn > MAX_BUY_IN
+		!Number.isInteger(values.prize) ||
+		values.prize < 1 ||
+		values.prize > MAX_PRIZE
 	)
-		return fail(m.bet_error_buy_in({ max: MAX_BUY_IN }));
+		return fail(m.bet_error_prize({ max: MAX_PRIZE }));
 
 	const closesAt = parseLocalDateTime(values.closesAt, values.timeZone);
 	if (!closesAt) return fail(m.bet_error_closes_missing());
@@ -114,7 +114,7 @@ export function readBetForm(form: FormData) {
 			description: values.description || null,
 			answer_config:
 				config as unknown as Database["public"]["Tables"]["bets"]["Insert"]["answer_config"],
-			buy_in: values.buyIn,
+			prize: values.prize,
 			closes_at: closesAt.toISOString()
 		}
 	};
@@ -145,7 +145,7 @@ export async function loadBet(
 			supabase
 				.from("bets")
 				.select(
-					"id, group_id, created_by, title, description, answer_config, buy_in, closes_at, status, outcome_at, winner_id, resolved_at, created_at"
+					"id, group_id, created_by, title, description, answer_config, prize, closes_at, status, outcome_at, winner_id, resolved_at, created_at"
 				)
 				.eq("id", betId)
 				.eq("group_id", groupId)

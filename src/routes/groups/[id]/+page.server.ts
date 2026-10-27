@@ -41,7 +41,7 @@ export const load: PageServerLoad = async ({ locals, params, url }) => {
 			locals.supabase
 				.from("bets")
 				.select(
-					"id, title, answer_config, buy_in, closes_at, status, outcome_at, winner_id, created_at, wagers(user_id)"
+					"id, title, answer_config, prize, closes_at, status, outcome_at, winner_id, created_at, wagers(user_id)"
 				)
 				.eq("group_id", group.id)
 				.order("created_at", { ascending: false })
@@ -60,7 +60,7 @@ export const load: PageServerLoad = async ({ locals, params, url }) => {
 			id: bet.id,
 			title: bet.title,
 			timeZone: (bet.answer_config as unknown as TimeslotConfig).timeZone,
-			buyIn: bet.buy_in,
+			prize: bet.prize,
 			closesAt: bet.closes_at,
 			status: bet.status as BetStatus,
 			outcomeAt: bet.outcome_at,
