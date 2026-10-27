@@ -39,9 +39,11 @@ export const actions: Actions = {
 
 		// After confirming their email, people land back where they were headed
 		// (e.g. an invite link they opened before having an account)
+		// Always has a ?next=, so the email template can append
+		// &token_hash=…&type=email to {{ .RedirectTo }}
 		const confirmUrl = new URL("/auth/confirm", url.origin);
 		const redirectTo = safeRedirect(url.searchParams.get("redirectTo"), "");
-		if (redirectTo) confirmUrl.searchParams.set("next", redirectTo);
+		confirmUrl.searchParams.set("next", redirectTo || "/");
 
 		const { data, error } = await locals.supabase.auth.signUp({
 			email,
